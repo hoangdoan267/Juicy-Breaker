@@ -74,9 +74,9 @@
 		A8D1CA711D9C399D00736AFC /* Juicy Breakout */ = {
 			isa = PBXGroup;
 			children = (
+				A8E1718F1D9FBB23001AE326 /* Views */,
 				A8E171921D9FBB3F001AE326 /* Scenes */,
 				A8E171901D9FBB2A001AE326 /* Controllers */,
-				A8E1718F1D9FBB23001AE326 /* Views */,
 				A8E1718C1D9FBAD3001AE326 /* Constants */,
 				A8D1CA721D9C399D00736AFC /* AppDelegate.swift */,
 				A8D1CA741D9C399D00736AFC /* GameScene.sks */,
@@ -158,7 +158,7 @@
 				TargetAttributes = {
 					A8D1CA6E1D9C399D00736AFC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = PXTEM2Y3FM;
+						DevelopmentTeam = 245HW66W8F;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -333,11 +333,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PXTEM2Y3FM;
+				DEVELOPMENT_TEAM = 245HW66W8F;
 				INFOPLIST_FILE = "Juicy Breakout/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Techkids.Juicy-Breakout";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.techkids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -347,11 +347,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PXTEM2Y3FM;
+				DEVELOPMENT_TEAM = 245HW66W8F;
 				INFOPLIST_FILE = "Juicy Breakout/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Techkids.Juicy-Breakout";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.techkids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

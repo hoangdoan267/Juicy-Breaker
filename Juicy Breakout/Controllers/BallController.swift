@@ -9,20 +9,30 @@
 import SpriteKit
 
 class BallController: Controller {
+    var totalPoint = 0
+
+    
     override func setup(_ parent: SKNode) {
         configPhysics()
         setupContact()
     }
     
+    //setup
     func setupContact()  {
+        var count = 0
         self.view.handleContact = {
             otherView in
             if let brick = otherView as? BrickView {
                 brick.removeFromParent()
+                    count += 1
+                    self.totalPoint += count
+                    print("total Point: \(self.totalPoint)")
+                    
+                }
+                
             }
-            
         }
-    }
+    
     
     func configPhysics() {
         view.name = "ball"
