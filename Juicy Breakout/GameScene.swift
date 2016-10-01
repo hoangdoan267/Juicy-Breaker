@@ -86,7 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     //ADD PADDLE
     func addPaddle()  {
         
-        let paddleView = View(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 100, height: 10))
+        let paddleView = PaddleView(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 100, height: 10))
 
         paddleView.position = CGPoint(x: self.frame.width/2, y: paddleView.frame.height * 5)
         paddleView.name = "paddeCategoryName"

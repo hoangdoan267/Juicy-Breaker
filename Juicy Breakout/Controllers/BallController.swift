@@ -11,8 +11,7 @@ import SpriteKit
 class BallController: Controller {
     
     var totalPoint = 0
-    
-    
+    var count = 0
     
     var check = false
     
@@ -24,13 +23,17 @@ class BallController: Controller {
     
     
     func setupContact()  {
-        var count = 0
+        
         self.view.handleContact = {
             otherView in
+            if let paddle = otherView as? PaddleView {
+                self.count = 0
+            }
+            
             if let brick = otherView as? BrickView {
                 brick.removeFromParent()
-                count += 1
-                self.totalPoint += count
+                self.count += 1
+                self.totalPoint += self.count
                 print("total Point: \(self.totalPoint)")
                 
             }
@@ -38,11 +41,9 @@ class BallController: Controller {
                 self.view.removeFromParent()
                 self.check = true
             }
+
             
         }
-        
-        
-        
     }
     
     
@@ -55,6 +56,6 @@ class BallController: Controller {
         view.physicsBody?.linearDamping = 0
         view.physicsBody?.applyImpulse(CGVector(dx: 0.75 , dy: 0.75))
         view.physicsBody?.categoryBitMask = ballCategory
-        view.physicsBody?.contactTestBitMask = (bottomCategory | brickCategory)
+        view.physicsBody?.contactTestBitMask = (bottomCategory | brickCategory | paddleCategory)
     }
 }
