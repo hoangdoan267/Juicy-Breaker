@@ -47,8 +47,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     //ADD SCORR LABEL
     func addScore()  {
         scoreLabel = SKLabelNode(text: "Score: ")
+        scoreLabel.fontSize = 16
         scoreLabel.fontName = "Tahoma"
-        scoreLabel.fontColor = UIColor.darkGray
+        scoreLabel.fontColor = UIColor(red:0.83, green:0.40, blue:0.21, alpha:1.0)
         scoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 30)
         scoreLabel.text = "0"
         addChild(scoreLabel)
@@ -222,12 +223,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
     }
     
-
-    
-    
-    
-    
-    
+   
     func changeToGameOver() {
         if(self.ballController.check == true) {
             let gameScene = GameOverScence(size: (self.view?.frame.size)!)

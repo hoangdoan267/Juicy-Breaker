@@ -13,12 +13,14 @@ class GameWinScene: SKScene {
     override func didMove(to view: SKView) {
         addBackGround()
         let label = SKLabelNode(text: "Congratulation! You Win")
+        label.fontSize = 24
         label.fontName = "Tahoma"
         label.fontColor = UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0)
         label.position = CGPoint(x: self.frame.size.width/2, y:  self.frame.size.height/2 + 50)
         addChild(label)
         
         let againLabel = SKLabelNode(text: "Tap to replay!")
+        againLabel.fontSize = 24
         againLabel.fontName = "Tahoma"
         againLabel.fontColor = UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0)
         againLabel.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/2)
