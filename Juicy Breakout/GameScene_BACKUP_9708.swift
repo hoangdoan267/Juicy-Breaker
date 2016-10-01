@@ -18,8 +18,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var ballController:BallController!
     var brick: [Controller?] = []
     
+<<<<<<< HEAD
     
+=======
    
+>>>>>>> 934b18f7cd89d093ace5d71ff4417599322dd7e2
     override func didMove(to view: SKView) {
         configBorder()
         addBackGround()
@@ -29,19 +32,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         addBricks()
         addScore()
         configCollision()
+<<<<<<< HEAD
+=======
        
+>>>>>>> 934b18f7cd89d093ace5d71ff4417599322dd7e2
     }
     
    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+<<<<<<< HEAD
         let score = (String)(ballController.totalPoint)
         scoreLabel.text = "Score: \(score)"
+=======
         changeToGameOver()
         
         if(gameWin() == true) {
             changeToWin()
         }
+>>>>>>> 934b18f7cd89d093ace5d71ff4417599322dd7e2
     }
     
     //ADD SCORR LABEL
@@ -98,7 +107,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     //ADD BOTTOM
     func addBottom() {
         let bottomRect = CGRect(origin: self.frame.origin, size: CGSize(width: self.frame.width, height: 1))
-        bottom = SKSpriteNode()
         bottom = BottomView()
         bottom.name = "bottomBorder"
         bottom.physicsBody = SKPhysicsBody(edgeLoopFrom: bottomRect)
@@ -222,12 +230,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
     }
     
+<<<<<<< HEAD
 
     
     
     
     
     
+=======
     func changeToGameOver() {
         if(self.ballController.check == true) {
             let gameScene = GameOverScence(size: (self.view?.frame.size)!)
@@ -239,6 +249,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let gameScene = GameWinScene(size: (self.view?.frame.size)!)
         self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
     }
+>>>>>>> 934b18f7cd89d093ace5d71ff4417599322dd7e2
     
     func gameWin() -> Bool {
         var numberOfBricks = 0

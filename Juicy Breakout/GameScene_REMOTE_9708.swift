@@ -11,13 +11,11 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    var scoreLabel : SKLabelNode!
     var bottom:SKSpriteNode!
 
     var paddleController:PaddleController!
     var ballController:BallController!
     var brick: [Controller?] = []
-    
     
    
     override func didMove(to view: SKView) {
@@ -27,7 +25,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         addBall()
         addBottom()
         addBricks()
-        addScore()
         configCollision()
        
     }
@@ -35,8 +32,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        let score = (String)(ballController.totalPoint)
-        scoreLabel.text = "Score: \(score)"
         changeToGameOver()
         
         if(gameWin() == true) {
@@ -44,31 +39,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
     }
     
-    //ADD SCORR LABEL
-    func addScore()  {
-        scoreLabel = SKLabelNode(text: "Score: ")
-        scoreLabel.fontName = "Tahoma"
-        scoreLabel.fontColor = UIColor.darkGray
-        scoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 30)
-        scoreLabel.text = "0"
-        addChild(scoreLabel)
-    }
-    
-    //ADD BACKGROUND
     func addBackGround() {
         let backGround = SKSpriteNode(color: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), size: self.frame.size)
         backGround.anchorPoint = CGPoint.zero
         addChild(backGround)
     }
     
-    //CONFIG BORDER
     func configBorder() {
         let worldBorder = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsBody = worldBorder
+        self.physicsBody?.friction = 0
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
     }
     
-    //ADD BALL
     func addBall() {
         
         let ballView = View(color: UIColor(red:0.83, green:0.40, blue:0.21, alpha:1.0), size: CGSize(width: 10, height: 10))
@@ -82,7 +65,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 
     }
     
-    //ADD PADDLE
     func addPaddle()  {
         
         let paddleView = View(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 100, height: 10))
@@ -95,17 +77,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.paddleController.setup(self)
     }
     
-    //ADD BOTTOM
     func addBottom() {
         let bottomRect = CGRect(origin: self.frame.origin, size: CGSize(width: self.frame.width, height: 1))
-        bottom = SKSpriteNode()
         bottom = BottomView()
         bottom.name = "bottomBorder"
         bottom.physicsBody = SKPhysicsBody(edgeLoopFrom: bottomRect)
         self.addChild(bottom)
     }
     
-    //ADD BRICK
     func addBricks() {
         let numberOfRows = 6
         let numberOfBricks = 6
@@ -157,7 +136,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
     }
     
-    
     func configCollision() {
         self.physicsWorld.contactDelegate = self
         bottom.physicsBody?.categoryBitMask = bottomCategory
@@ -182,13 +160,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+
+        
         var firstBody = SKPhysicsBody()
         var secondBody = SKPhysicsBody()
 
         if  contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
-        
+
+            
             if  firstBody.node?.name != nil && secondBody.node?.name != nil {
                 let nodeA = firstBody.node as! View
                 let nodeB = secondBody.node as! View
@@ -199,6 +180,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 if let bHandleContact = nodeB.handleContact {
                     bHandleContact(nodeA)
                 }
+
 
             }
             
@@ -221,12 +203,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         
     }
-    
-
-    
-    
-    
-    
     
     func changeToGameOver() {
         if(self.ballController.check == true) {
