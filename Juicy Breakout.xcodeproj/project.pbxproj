@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A809D30B1D9FE6B9003DA7F8 /* BallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30A1D9FE6B9003DA7F8 /* BallController.swift */; };
+		A809D30D1D9FEB34003DA7F8 /* BrickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30C1D9FEB34003DA7F8 /* BrickController.swift */; };
+		A809D30F1D9FF130003DA7F8 /* BrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30E1D9FF130003DA7F8 /* BrickView.swift */; };
 		A8D1CA731D9C399D00736AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D1CA721D9C399D00736AFC /* AppDelegate.swift */; };
 		A8D1CA751D9C399D00736AFC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA741D9C399D00736AFC /* GameScene.sks */; };
 		A8D1CA771D9C399D00736AFC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA761D9C399D00736AFC /* Actions.sks */; };
@@ -15,9 +18,16 @@
 		A8D1CA7E1D9C399D00736AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA7C1D9C399D00736AFC /* Main.storyboard */; };
 		A8D1CA801D9C399D00736AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA7F1D9C399D00736AFC /* Assets.xcassets */; };
 		A8D1CA831D9C399D00736AFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA811D9C399D00736AFC /* LaunchScreen.storyboard */; };
+		A8E1718E1D9FBAF7001AE326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E1718D1D9FBAF7001AE326 /* Constants.swift */; };
+		A8E171961D9FBBC7001AE326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E171951D9FBBC7001AE326 /* View.swift */; };
+		A8E171981D9FBBE1001AE326 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E171971D9FBBE1001AE326 /* Controller.swift */; };
+		A8E1719A1D9FBED1001AE326 /* PaddleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E171991D9FBED1001AE326 /* PaddleController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A809D30A1D9FE6B9003DA7F8 /* BallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BallController.swift; path = Controllers/BallController.swift; sourceTree = "<group>"; };
+		A809D30C1D9FEB34003DA7F8 /* BrickController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrickController.swift; path = Controllers/BrickController.swift; sourceTree = "<group>"; };
+		A809D30E1D9FF130003DA7F8 /* BrickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrickView.swift; path = Views/BrickView.swift; sourceTree = "<group>"; };
 		A8D1CA6F1D9C399D00736AFC /* Juicy Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Juicy Breakout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D1CA721D9C399D00736AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D1CA741D9C399D00736AFC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -28,6 +38,10 @@
 		A8D1CA7F1D9C399D00736AFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8D1CA821D9C399D00736AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8D1CA841D9C399D00736AFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8E1718D1D9FBAF7001AE326 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Constants/Constants.swift; sourceTree = "<group>"; };
+		A8E171951D9FBBC7001AE326 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = View.swift; path = Views/View.swift; sourceTree = "<group>"; };
+		A8E171971D9FBBE1001AE326 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller.swift; path = Controllers/Controller.swift; sourceTree = "<group>"; };
+		A8E171991D9FBED1001AE326 /* PaddleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddleController.swift; path = Controllers/PaddleController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,10 @@
 		A8D1CA711D9C399D00736AFC /* Juicy Breakout */ = {
 			isa = PBXGroup;
 			children = (
+				A8E171921D9FBB3F001AE326 /* Scenes */,
+				A8E171901D9FBB2A001AE326 /* Controllers */,
+				A8E1718F1D9FBB23001AE326 /* Views */,
+				A8E1718C1D9FBAD3001AE326 /* Constants */,
 				A8D1CA721D9C399D00736AFC /* AppDelegate.swift */,
 				A8D1CA741D9C399D00736AFC /* GameScene.sks */,
 				A8D1CA761D9C399D00736AFC /* Actions.sks */,
@@ -71,6 +89,41 @@
 				A8D1CA841D9C399D00736AFC /* Info.plist */,
 			);
 			path = "Juicy Breakout";
+			sourceTree = "<group>";
+		};
+		A8E1718C1D9FBAD3001AE326 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A8E1718D1D9FBAF7001AE326 /* Constants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		A8E1718F1D9FBB23001AE326 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8E171951D9FBBC7001AE326 /* View.swift */,
+				A809D30E1D9FF130003DA7F8 /* BrickView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A8E171901D9FBB2A001AE326 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8E171971D9FBBE1001AE326 /* Controller.swift */,
+				A8E171991D9FBED1001AE326 /* PaddleController.swift */,
+				A809D30A1D9FE6B9003DA7F8 /* BallController.swift */,
+				A809D30C1D9FEB34003DA7F8 /* BrickController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A8E171921D9FBB3F001AE326 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +202,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D1CA791D9C399D00736AFC /* GameScene.swift in Sources */,
+				A8E1719A1D9FBED1001AE326 /* PaddleController.swift in Sources */,
+				A809D30F1D9FF130003DA7F8 /* BrickView.swift in Sources */,
+				A8E171961D9FBBC7001AE326 /* View.swift in Sources */,
 				A8D1CA7B1D9C399D00736AFC /* GameViewController.swift in Sources */,
+				A8E171981D9FBBE1001AE326 /* Controller.swift in Sources */,
 				A8D1CA731D9C399D00736AFC /* AppDelegate.swift in Sources */,
+				A809D30B1D9FE6B9003DA7F8 /* BallController.swift in Sources */,
+				A8E1718E1D9FBAF7001AE326 /* Constants.swift in Sources */,
+				A809D30D1D9FEB34003DA7F8 /* BrickController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +376,7 @@
 				A8D1CA891D9C399D00736AFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,16 +9,13 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    var paddle:SKSpriteNode!
-    var ball:SKSpriteNode!
     var bottom:SKSpriteNode!
-    
-    let ballCategory = UInt32(1<<0)
-    let bottomCategory = UInt32(1<<1)
-    let brickCategory = UInt32(1<<2)
-    let paddleCategory = UInt32(1<<3)
+
+    var woodyPaddle:PaddleController!
+    var ball:BallController!
+    var brick: [Controller?] = []
     
     
     
@@ -52,30 +49,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addBall() {
-        ball = SKSpriteNode(color: UIColor(red:0.83, green:0.40, blue:0.21, alpha:1.0), size: CGSize(width: 10, height: 10))
-        ball.position = CGPoint(x: self.frame.width/2, y: self.frame.height/4)
         
-        self.addChild(ball)
-        ball.physicsBody = SKPhysicsBody(rectangleOf: ball.frame.size)
-        ball.physicsBody?.friction = 0
-        ball.physicsBody?.allowsRotation = false
-        ball.physicsBody?.restitution = 1
-        ball.physicsBody?.linearDamping = 0
-        ball.physicsBody?.applyImpulse(CGVector(dx: 0.75 , dy: -0.75))
+        let ballView = View(color: UIColor(red:0.83, green:0.40, blue:0.21, alpha:1.0), size: CGSize(width: 10, height: 10))
         
+        ballView.position = CGPoint(x: self.frame.width/2, y: self.frame.height/4)
+        ballView.name = "ball"
+        self.addChild(ballView)
+        
+        self.ball = BallController(view: ballView)
+        self.ball.setup(self)
+
     }
     
     func addPaddle()  {
-        paddle = SKSpriteNode(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 100, height: 10))
-        paddle.position = CGPoint(x: self.frame.width/2, y: paddle.frame.height * 5)
-        paddle.name = "paddeCategoryName"
-        self.addChild(paddle)
         
-        paddle.physicsBody = SKPhysicsBody(rectangleOf: paddle.frame.size)
-        paddle.physicsBody?.friction = 0.4
-        paddle.physicsBody?.isDynamic = false
-        paddle.physicsBody?.restitution = 0.1
+        let paddleView = View(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 100, height: 10))
+
+        paddleView.position = CGPoint(x: self.frame.width/2, y: paddleView.frame.height * 5)
+        paddleView.name = "paddeCategoryName"
+        self.addChild(paddleView)
         
+        self.woodyPaddle = PaddleController(view: paddleView)
+        self.woodyPaddle.setup(self)
     }
     
     func addBottom() {
@@ -118,24 +113,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             for index in 1 ... numberOfBricks {
-                let brick = SKSpriteNode(color: UIColor(red:0.38, green:0.74, blue:0.52, alpha:1.0), size: CGSize(width: 40, height: 15))
-                brick.name = "brick"
+                let brickView = BrickView(color: UIColor(red:0.38, green:0.74, blue:0.52, alpha:1.0), size: CGSize(width: 40, height: 15))
+
                 
                 let calc1:Float = Float(index) - 0.5
                 let calc2:Float = Float(index) - 1
-                let position = CGFloat(calc1  * Float(brick.frame.size.width) + calc2 * Float(padding) + finalOffset)
-                
-                brick.position = CGPoint(x: position, y: yOffset)
-                brick.physicsBody = SKPhysicsBody(rectangleOf: brick.frame.size)
-                brick.physicsBody?.allowsRotation = false
-                brick.physicsBody?.friction = 0
-                brick.physicsBody?.categoryBitMask = brickCategory
-                brick.physicsBody?.collisionBitMask = 0
-                
-                
-                self.addChild(brick)
-                
-                
+                let position = CGFloat(calc1  * Float(brickView.frame.size.width) + calc2 * Float(padding) + finalOffset)
+                brickView.position = CGPoint(x: position, y: yOffset)
+                brickView.name = "brick"
+                self.addChild(brickView)
+                let singleBrickController = BrickController(view: brickView)
+                singleBrickController.setup(self)
+                self.brick.append(singleBrickController)
                 
             }
         }
@@ -144,10 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func configCollision() {
         self.physicsWorld.contactDelegate = self
-        ball.physicsBody?.categoryBitMask = ballCategory
-        paddle.physicsBody?.categoryBitMask = paddleCategory
         bottom.physicsBody?.categoryBitMask = bottomCategory
-        ball.physicsBody?.contactTestBitMask = (bottomCategory | brickCategory)
     }
     
    
@@ -158,39 +144,58 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         let touchLocation = touch?.location(in: self)
-        let prevLocation = touch?.previousLocation(in: self)
+        let prevLocation = touch?.previousLocation(in: self)        
         
-        var newPos = self.paddle.position.x + ((touchLocation?.x)! - (prevLocation?.x)!)
+        var newPos = self.woodyPaddle.view.position.x + ((touchLocation?.x)! - (prevLocation?.x)!)
         
-        newPos = max(newPos, self.paddle.size.width/2)
-        newPos = min(newPos, self.frame.width - self.paddle.frame.width/2)
-        self.paddle.position = CGPoint(x: newPos, y: self.paddle.position.y)
+        newPos = max(newPos, self.woodyPaddle.view.size.width/2)
+        newPos = min(newPos, self.frame.width - self.woodyPaddle.view.frame.width/2)
+        self.woodyPaddle.view.position = CGPoint(x: newPos, y: self.woodyPaddle.view.position.y)
         
     }
     
-    
-    
     func didBegin(_ contact: SKPhysicsContact) {
+
+        
         var firstBody = SKPhysicsBody()
         var secondBody = SKPhysicsBody()
-        
+
         if  contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
+
+            
+            if  firstBody.node?.name != nil && secondBody.node?.name != nil {
+                let nodeA = firstBody.node as! View
+                let nodeB = secondBody.node as! View
+                if let aHandleContact = nodeA.handleContact {
+                    aHandleContact(nodeB)
+                }
+                
+                if let bHandleContact = nodeB.handleContact {
+                    bHandleContact(nodeA)
+                }
+
+
+            }
+            
         } else {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
+            if  firstBody.node?.name != nil && secondBody.node?.name != nil {
+                
+                let nodeA = firstBody.node as! View
+                let nodeB = secondBody.node as! View
+                
+                if let aHandleContact = nodeA.handleContact {
+                    aHandleContact(nodeB)
+                }
+                
+                if let bHandleContact = nodeB.handleContact {
+                    bHandleContact(nodeA)
+                }
+            }
         }
-        
-        
-//        if firstBody.categoryBitMask == ballCategory && secondBody.categoryBitMask == bottomCategory {
-//
-//        }
-        
-        if firstBody.categoryBitMask == ballCategory && secondBody.categoryBitMask == brickCategory {
-            secondBody.node?.removeFromParent()
-        }
-        
         
     }
     
