@@ -11,13 +11,14 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
+    static var score:Int = 0
+    
     var scoreLabel : SKLabelNode!
     var bottom:SKSpriteNode!
 
     var paddleController:PaddleController!
     var ballController:BallController!
     var brick: [Controller?] = []
-    
     
    
     override func didMove(to view: SKView) {
@@ -31,12 +32,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         configCollision()
        
     }
-    
    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        let score = (String)(ballController.totalPoint)
-        scoreLabel.text = "Score: \(score)"
+        scoreLabel.text = "Score: \(GameScene.score)"
         changeToGameOver()
         
         if(gameWin() == true) {
@@ -146,10 +145,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 let calc1:Float = Float(index) - 0.5
                 let calc2:Float = Float(index) - 1
                 let position = CGFloat(calc1  * Float(brickView.frame.size.width) + calc2 * Float(padding) + finalOffset)
-                brickView.position = CGPoint(x: position, y: yOffset)
-                brickView.name = "brick"
-                self.addChild(brickView)
+                
                 let singleBrickController = BrickController(view: brickView)
+                singleBrickController.setLevel(number: 1)
+                singleBrickController.changeView()
+                singleBrickController.view.position = CGPoint(x: position, y: yOffset)
+                singleBrickController.view.name = "brick"
+                self.addChild(singleBrickController.view)
                 singleBrickController.setup(self)
                 self.brick.append(singleBrickController)
                 
@@ -226,8 +228,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
    
     func changeToGameOver() {
         if(self.ballController.check == true) {
-            let gameScene = GameOverScence(size: (self.view?.frame.size)!)
+            let gameScene = SceneLevel2(size: (self.view?.frame.size)!)
+            
             self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
+            
         }
     }
     
@@ -235,6 +239,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let gameScene = GameWinScene(size: (self.view?.frame.size)!)
         self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
     }
+    
+//    func nextLevel() {
+//        
+//    }
     
     func gameWin() -> Bool {
         var numberOfBricks = 0

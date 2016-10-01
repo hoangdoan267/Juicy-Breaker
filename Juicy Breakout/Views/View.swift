@@ -14,4 +14,11 @@ typealias HandleContactType = ((_ otherView: View) -> Void)
 class View : SKSpriteNode {
     var handleContact : HandleContactType?
     
+    var level:Int = 0
+    
+    func setLevel(number: Int) {
+        self.level = number
+        print(self.level)
+    }
+    
 }

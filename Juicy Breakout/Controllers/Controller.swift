@@ -10,7 +10,7 @@ import SpriteKit
 
 class Controller {
     
-    internal let view: View
+    internal var view: View
     
     func setup(_ parent: SKNode) -> Void {
         

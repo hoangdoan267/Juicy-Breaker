@@ -10,7 +10,7 @@ import SpriteKit
 
 class BallController: Controller {
     
-    var totalPoint = 0
+    var time = 0
     var count = 0
     
     var check = false
@@ -21,6 +21,7 @@ class BallController: Controller {
         setupContact()
     }
     
+  
     
     func setupContact()  {
         
@@ -28,13 +29,26 @@ class BallController: Controller {
             otherView in
             if let paddle = otherView as? PaddleView {
                 self.count = 0
+                self.time = 0
             }
             
             if let brick = otherView as? BrickView {
                 brick.removeFromParent()
-                self.count += 1
-                self.totalPoint += self.count
-                print("total Point: \(self.totalPoint)")
+                print(brick.level)
+                if brick.level == 1 {
+                    self.count += 1
+                    self.time = 0
+                }
+                
+                if brick.level == 2 {
+                    
+                    self.time += 2
+                    print(self.time)
+                    self.count = 0
+                }
+                
+//                self.totalPoint += self.count
+                GameScene.score += self.count + self.time
                 
             }
             if let bottomBorder = otherView as? BottomView {
@@ -43,7 +57,7 @@ class BallController: Controller {
             }
 
             
-        }
+        }        
     }
     
     

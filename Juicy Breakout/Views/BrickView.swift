@@ -9,5 +9,5 @@
 import SpriteKit
 
 class BrickView: View {
-    
+
 }
