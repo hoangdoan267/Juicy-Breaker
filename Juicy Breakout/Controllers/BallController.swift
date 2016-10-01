@@ -9,6 +9,9 @@
 import SpriteKit
 
 class BallController: Controller {
+    
+    var check = false
+    
     override func setup(_ parent: SKNode) {
         configPhysics()
         setupContact()
@@ -21,6 +24,10 @@ class BallController: Controller {
                 brick.removeFromParent()
             }
             
+            if let bottomBorder = otherView as? BottomView {
+                self.view.removeFromParent()
+                self.check = true
+            }
         }
     }
     

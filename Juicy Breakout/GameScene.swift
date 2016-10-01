@@ -13,12 +13,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     var bottom:SKSpriteNode!
 
-    var woodyPaddle:PaddleController!
-    var ball:BallController!
+    var paddleController:PaddleController!
+    var ballController:BallController!
     var brick: [Controller?] = []
     
-    
-    
+   
     override func didMove(to view: SKView) {
         configBorder()
         addBackGround()
@@ -27,12 +26,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         addBottom()
         addBricks()
         configCollision()
-        
+       
     }
     
    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        changeToGameOver()
+        
+        if(gameWin() == true) {
+            changeToWin()
+        }
     }
     
     func addBackGround() {
@@ -56,8 +60,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         ballView.name = "ball"
         self.addChild(ballView)
         
-        self.ball = BallController(view: ballView)
-        self.ball.setup(self)
+        self.ballController = BallController(view: ballView)
+        self.ballController.setup(self)
 
     }
     
@@ -69,13 +73,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         paddleView.name = "paddeCategoryName"
         self.addChild(paddleView)
         
-        self.woodyPaddle = PaddleController(view: paddleView)
-        self.woodyPaddle.setup(self)
+        self.paddleController = PaddleController(view: paddleView)
+        self.paddleController.setup(self)
     }
     
     func addBottom() {
         let bottomRect = CGRect(origin: self.frame.origin, size: CGSize(width: self.frame.width, height: 1))
-        bottom = SKSpriteNode()
+        bottom = BottomView()
+        bottom.name = "bottomBorder"
         bottom.physicsBody = SKPhysicsBody(edgeLoopFrom: bottomRect)
         self.addChild(bottom)
     }
@@ -146,11 +151,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let touchLocation = touch?.location(in: self)
         let prevLocation = touch?.previousLocation(in: self)        
         
-        var newPos = self.woodyPaddle.view.position.x + ((touchLocation?.x)! - (prevLocation?.x)!)
+        var newPos = self.paddleController.view.position.x + ((touchLocation?.x)! - (prevLocation?.x)!)
         
-        newPos = max(newPos, self.woodyPaddle.view.size.width/2)
-        newPos = min(newPos, self.frame.width - self.woodyPaddle.view.frame.width/2)
-        self.woodyPaddle.view.position = CGPoint(x: newPos, y: self.woodyPaddle.view.position.y)
+        newPos = max(newPos, self.paddleController.view.size.width/2)
+        newPos = min(newPos, self.frame.width - self.paddleController.view.frame.width/2)
+        self.paddleController.view.position = CGPoint(x: newPos, y: self.paddleController.view.position.y)
         
     }
     
@@ -199,5 +204,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
     }
     
+    func changeToGameOver() {
+        if(self.ballController.check == true) {
+            let gameScene = GameOverScence(size: (self.view?.frame.size)!)
+            self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
+        }
+    }
     
+    func changeToWin() {
+        let gameScene = GameWinScene(size: (self.view?.frame.size)!)
+        self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
+    }
+    
+    func gameWin() -> Bool {
+        var numberOfBricks = 0
+        for nodeObject in self.children {
+            let node = nodeObject as SKNode
+            if node.name == "brick" {
+                numberOfBricks += 1
+            }
+        }
+        return numberOfBricks <= 0
+    }
 }

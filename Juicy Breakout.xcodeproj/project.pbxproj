@@ -10,6 +10,9 @@
 		A809D30B1D9FE6B9003DA7F8 /* BallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30A1D9FE6B9003DA7F8 /* BallController.swift */; };
 		A809D30D1D9FEB34003DA7F8 /* BrickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30C1D9FEB34003DA7F8 /* BrickController.swift */; };
 		A809D30F1D9FF130003DA7F8 /* BrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30E1D9FF130003DA7F8 /* BrickView.swift */; };
+		A809D3131DA02A99003DA7F8 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D3121DA02A99003DA7F8 /* BottomView.swift */; };
+		A809D3151DA02C48003DA7F8 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D3141DA02C48003DA7F8 /* GameOverScene.swift */; };
+		A809D3171DA03409003DA7F8 /* GameWinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D3161DA03409003DA7F8 /* GameWinScene.swift */; };
 		A8D1CA731D9C399D00736AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D1CA721D9C399D00736AFC /* AppDelegate.swift */; };
 		A8D1CA751D9C399D00736AFC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA741D9C399D00736AFC /* GameScene.sks */; };
 		A8D1CA771D9C399D00736AFC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA761D9C399D00736AFC /* Actions.sks */; };
@@ -28,6 +31,9 @@
 		A809D30A1D9FE6B9003DA7F8 /* BallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BallController.swift; path = Controllers/BallController.swift; sourceTree = "<group>"; };
 		A809D30C1D9FEB34003DA7F8 /* BrickController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrickController.swift; path = Controllers/BrickController.swift; sourceTree = "<group>"; };
 		A809D30E1D9FF130003DA7F8 /* BrickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrickView.swift; path = Views/BrickView.swift; sourceTree = "<group>"; };
+		A809D3121DA02A99003DA7F8 /* BottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomView.swift; path = Views/BottomView.swift; sourceTree = "<group>"; };
+		A809D3141DA02C48003DA7F8 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameOverScene.swift; path = Scenes/GameOverScene.swift; sourceTree = "<group>"; };
+		A809D3161DA03409003DA7F8 /* GameWinScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameWinScene.swift; path = Scenes/GameWinScene.swift; sourceTree = "<group>"; };
 		A8D1CA6F1D9C399D00736AFC /* Juicy Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Juicy Breakout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D1CA721D9C399D00736AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D1CA741D9C399D00736AFC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 			children = (
 				A8E171951D9FBBC7001AE326 /* View.swift */,
 				A809D30E1D9FF130003DA7F8 /* BrickView.swift */,
+				A809D3121DA02A99003DA7F8 /* BottomView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -122,6 +129,8 @@
 		A8E171921D9FBB3F001AE326 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A809D3141DA02C48003DA7F8 /* GameOverScene.swift */,
+				A809D3161DA03409003DA7F8 /* GameWinScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -202,14 +211,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D1CA791D9C399D00736AFC /* GameScene.swift in Sources */,
+				A809D3171DA03409003DA7F8 /* GameWinScene.swift in Sources */,
 				A8E1719A1D9FBED1001AE326 /* PaddleController.swift in Sources */,
 				A809D30F1D9FF130003DA7F8 /* BrickView.swift in Sources */,
 				A8E171961D9FBBC7001AE326 /* View.swift in Sources */,
+				A809D3131DA02A99003DA7F8 /* BottomView.swift in Sources */,
 				A8D1CA7B1D9C399D00736AFC /* GameViewController.swift in Sources */,
 				A8E171981D9FBBE1001AE326 /* Controller.swift in Sources */,
 				A8D1CA731D9C399D00736AFC /* AppDelegate.swift in Sources */,
 				A809D30B1D9FE6B9003DA7F8 /* BallController.swift in Sources */,
 				A8E1718E1D9FBAF7001AE326 /* Constants.swift in Sources */,
+				A809D3151DA02C48003DA7F8 /* GameOverScene.swift in Sources */,
 				A809D30D1D9FEB34003DA7F8 /* BrickController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
