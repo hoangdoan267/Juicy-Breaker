@@ -56,7 +56,7 @@ class BallController: Controller {
                     self.count = 0
                 }
                 
-                //                self.totalPoint += self.count
+                //self.totalPoint += self.count
                 GameScene.score += self.count + self.time
                 
             }

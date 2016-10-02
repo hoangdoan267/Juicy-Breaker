@@ -24,13 +24,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     override func didMove(to view: SKView) {
         configBorder()
         addBackGround()
+        addGameSound()
         addPaddle()
         addBall()
         addBottom()
         addBricks()
         addScore()
         configCollision()
-       
+    }
+    //GAME SOUND
+    func addGameSound() {
+        //backgroundMusic = SKAudioNode(fileNamed: "gamesound.mp3")
+        //addChild(backgroundMusic)
+        //self.run(SKAction.playSoundFileNamed("gamesound.mp3", waitForCompletion: false))
+        
+        let backgroundMusic = SKAudioNode(fileNamed: "gamesound.mp3")
+        backgroundMusic.autoplayLooped = true
+        addChild(backgroundMusic)
     }
    
     override func update(_ currentTime: TimeInterval) {
@@ -230,6 +240,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if(self.ballController.check == true) {
             let gameScene = GameOverScence(size: (self.view?.frame.size)!)
             self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
+            
             self.run(SKAction.playSoundFileNamed("game-over.wav", waitForCompletion: false))
         }
     }
