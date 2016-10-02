@@ -36,10 +36,7 @@ class BallController: Controller {
             }
             
             if let brick = otherView as? BrickView {
-                let particle = SKEmitterNode(fileNamed: "BrokenPlatform.sks")
-                particle?.position = brick.position
-                parent.addChild(particle!)
-                
+               
                 
                 brick.removeFromParent()
                 parent.run(SKAction.playSoundFileNamed("BambooBreak.wav", waitForCompletion: false))
@@ -47,13 +44,18 @@ class BallController: Controller {
                 if brick.level == 1 {
                     self.count += 1
                     self.time = 0
+                    let particle = SKEmitterNode(fileNamed: "BrokenPlatform.sks")
+                    particle?.position = brick.position
+                    parent.addChild(particle!)
                 }
                 
                 if brick.level == 2 {
-                    
                     self.time += 2
                     print(self.time)
                     self.count = 0
+                    let particle = SKEmitterNode(fileNamed: "break_level_2.sks")
+                    particle?.position = brick.position
+                    parent.addChild(particle!)
                 }
                 
                 //self.totalPoint += self.count
