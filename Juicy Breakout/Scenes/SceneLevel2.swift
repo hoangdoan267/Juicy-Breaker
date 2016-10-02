@@ -78,4 +78,26 @@ class SceneLevel2: GameScene {
         }
         
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            let touchNode = self.nodes(at: location)
+            for node in touchNode {
+                if(node.name == "next") {
+                    //1 creat secent
+                    let gameScene = SceneLevel3(size: (self.view?.frame.size)!)
+                    //2 transport
+                    self.view?.presentScene(gameScene, transition: SKTransition.doorsCloseHorizontal(withDuration: 0.5))
+                }
+                if(node.name == "back") {
+                    //1 creat secent
+                    let gameScene = GameMenuScene(size: (self.view?.frame.size)!)
+                    //2 transport
+                    self.view?.presentScene(gameScene, transition: SKTransition.flipHorizontal(withDuration: 0.5))
+                }
+                
+            }
+        }
+    }
 }
