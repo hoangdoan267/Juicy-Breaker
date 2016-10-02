@@ -18,18 +18,13 @@ class BallController: Controller {
     
     override func setup(_ parent: SKNode) {
         configPhysics()
-<<<<<<< HEAD
         setupContact(parent: parent)
-=======
         setupContact(parent : parent)
->>>>>>> 16168b3b21fa001e57226ae99a759d9caf82c13f
+
     }
     
     
-<<<<<<< HEAD
-=======
-    
->>>>>>> 16168b3b21fa001e57226ae99a759d9caf82c13f
+
     func setupContact(parent: SKNode)  {
         
         self.view.handleContact = {
