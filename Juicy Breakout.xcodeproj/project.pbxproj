@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CB1BD2D1DA0825E006974D2 /* paddleBlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1BD2C1DA0825E006974D2 /* paddleBlip.wav */; };
+		2CB1BD2F1DA08285006974D2 /* BambooBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1BD2E1DA08285006974D2 /* BambooBreak.wav */; };
+		2CB1BD311DA087B2006974D2 /* game-won.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1BD301DA087B2006974D2 /* game-won.mp3 */; };
+		2CB1BD331DA087CE006974D2 /* game-over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1BD321DA087CE006974D2 /* game-over.wav */; };
 		A809D30B1D9FE6B9003DA7F8 /* BallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30A1D9FE6B9003DA7F8 /* BallController.swift */; };
 		A809D30D1D9FEB34003DA7F8 /* BrickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30C1D9FEB34003DA7F8 /* BrickController.swift */; };
 		A809D30F1D9FF130003DA7F8 /* BrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30E1D9FF130003DA7F8 /* BrickView.swift */; };
@@ -32,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CB1BD2C1DA0825E006974D2 /* paddleBlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = paddleBlip.wav; sourceTree = "<group>"; };
+		2CB1BD2E1DA08285006974D2 /* BambooBreak.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BambooBreak.wav; sourceTree = "<group>"; };
+		2CB1BD301DA087B2006974D2 /* game-won.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-won.mp3"; sourceTree = "<group>"; };
+		2CB1BD321DA087CE006974D2 /* game-over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-over.wav"; sourceTree = "<group>"; };
 		A809D30A1D9FE6B9003DA7F8 /* BallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BallController.swift; path = Controllers/BallController.swift; sourceTree = "<group>"; };
 		A809D30C1D9FEB34003DA7F8 /* BrickController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrickController.swift; path = Controllers/BrickController.swift; sourceTree = "<group>"; };
 		A809D30E1D9FF130003DA7F8 /* BrickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrickView.swift; path = Views/BrickView.swift; sourceTree = "<group>"; };
@@ -69,6 +77,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CB1BD2A1DA081FA006974D2 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2CB1BD2B1DA08203006974D2 /* Sound */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		2CB1BD2B1DA08203006974D2 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				2CB1BD2C1DA0825E006974D2 /* paddleBlip.wav */,
+				2CB1BD2E1DA08285006974D2 /* BambooBreak.wav */,
+				2CB1BD321DA087CE006974D2 /* game-over.wav */,
+				2CB1BD301DA087B2006974D2 /* game-won.mp3 */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		A809D31A1DA05239003DA7F8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +124,7 @@
 		A8D1CA711D9C399D00736AFC /* Juicy Breakout */ = {
 			isa = PBXGroup;
 			children = (
+				2CB1BD2A1DA081FA006974D2 /* Resource */,
 				A809D31A1DA05239003DA7F8 /* Utils */,
 				A8E1718F1D9FBB23001AE326 /* Views */,
 				A8E171921D9FBB3F001AE326 /* Scenes */,
@@ -216,9 +244,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D1CA7E1D9C399D00736AFC /* Main.storyboard in Resources */,
+				2CB1BD331DA087CE006974D2 /* game-over.wav in Resources */,
+				2CB1BD2D1DA0825E006974D2 /* paddleBlip.wav in Resources */,
 				A8D1CA751D9C399D00736AFC /* GameScene.sks in Resources */,
 				A8D1CA801D9C399D00736AFC /* Assets.xcassets in Resources */,
 				A8D1CA831D9C399D00736AFC /* LaunchScreen.storyboard in Resources */,
+				2CB1BD311DA087B2006974D2 /* game-won.mp3 in Resources */,
+				2CB1BD2F1DA08285006974D2 /* BambooBreak.wav in Resources */,
 				A8D1CA771D9C399D00736AFC /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

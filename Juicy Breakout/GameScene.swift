@@ -228,21 +228,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
    
     func changeToGameOver() {
         if(self.ballController.check == true) {
-            let gameScene = SceneLevel2(size: (self.view?.frame.size)!)
-            
+            let gameScene = GameOverScence(size: (self.view?.frame.size)!)
             self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
-            
+            self.run(SKAction.playSoundFileNamed("game-over.wav", waitForCompletion: false))
         }
     }
     
     func changeToWin() {
         let gameScene = GameWinScene(size: (self.view?.frame.size)!)
         self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
+        self.run(SKAction.playSoundFileNamed("game-won.mp3", waitForCompletion: false))
+
     }
     
-//    func nextLevel() {
-//        
-//    }
     
     func gameWin() -> Bool {
         var numberOfBricks = 0
