@@ -58,6 +58,13 @@ class BallController: Controller {
                     parent.addChild(particle!)
                 }
                 
+                if brick.level == 3 {
+                    let particle = SKEmitterNode(fileNamed: "break_level_3.sks")
+                    particle?.position = brick.position
+                    parent.addChild(particle!)
+                    self.addGift(parent: parent)
+                }
+                
                 //self.totalPoint += self.count
                 GameScene.score += self.count + self.time
                 
@@ -82,5 +89,15 @@ class BallController: Controller {
         view.physicsBody?.applyImpulse(CGVector(dx: 0.75 , dy: 0.75))
         view.physicsBody?.categoryBitMask = ballCategory
         view.physicsBody?.contactTestBitMask = (bottomCategory | brickCategory | paddleCategory)
+        view.physicsBody?.collisionBitMask = (bottomCategory | brickCategory | paddleCategory)
+    }
+    
+    func addGift(parent: SKNode) {
+        let gift = GiftView(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 25, height: 5))
+        gift.position = view.position
+        let giftController = GiftController(view: gift)
+        giftController.setup(parent)
+        parent.addChild(gift)
+        
     }
 }

@@ -11,13 +11,27 @@ import SpriteKit
 class PaddleController: Controller {
     override func setup(_ parent: SKNode) {
         configPhysics()
+        setupContact(parent: parent)
     }
     
+    func setupContact(parent: SKNode) {
+        self.view.handleContact = {
+            otherView in
+            if let paddle = otherView as? GiftView {
+                paddle.removeFromParent()
+                self.view.setScale(1.5)
+            }
+        }
+    }
+    
+    
     func configPhysics() {
+        
         view.physicsBody = SKPhysicsBody(rectangleOf: view.frame.size)
         view.physicsBody?.friction = 0.4
         view.physicsBody?.isDynamic = false
         view.physicsBody?.restitution = 0.1
         view.physicsBody?.categoryBitMask = paddleCategory
+        view.physicsBody?.contactTestBitMask = giftCategory
     }
 }
