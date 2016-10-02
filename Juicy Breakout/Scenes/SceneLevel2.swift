@@ -52,7 +52,10 @@ class SceneLevel2: GameScene {
                 let position = CGFloat(calc1  * Float(brickView.frame.size.width) + calc2 * Float(padding) + finalOffset)
                 
                 let singleBrickController = BrickController(view: brickView)
-                if (row % 2 != 0 && index % 3 == 0) {
+                if (row % 2 == 0 && index % 3 == 0) {
+                    singleBrickController.setLevel(number: 4)
+                }
+                else if (row % 2 != 0 && index % 3 == 0) {
                     singleBrickController.setLevel(number: 3)
                     
                 } else if row % 2 != 0 {
