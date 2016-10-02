@@ -62,7 +62,14 @@ class BallController: Controller {
                     let particle = SKEmitterNode(fileNamed: "break_level_3.sks")
                     particle?.position = brick.position
                     parent.addChild(particle!)
-                    self.addGift(parent: parent)
+                    self.addGift(parent: parent, giftType: 1)
+                }
+                
+                if brick.level == 4 {
+                    let particle = SKEmitterNode(fileNamed: "break_level_3.sks")
+                    particle?.position = brick.position
+                    parent.addChild(particle!)
+                    self.addGift(parent: parent, giftType: 2)
                 }
                 
                 //self.totalPoint += self.count
@@ -92,8 +99,18 @@ class BallController: Controller {
         view.physicsBody?.collisionBitMask = (bottomCategory | brickCategory | paddleCategory)
     }
     
-    func addGift(parent: SKNode) {
-        let gift = GiftView(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 25, height: 5))
+    func addGift(parent: SKNode, giftType: Int) {
+        var gift = GiftView()
+        switch giftType {
+        case 1:
+            gift = GiftView(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 25, height: 5))
+            gift.setLevel(number: 1)
+        case 2:
+            gift = GiftView(color: UIColor(red:0.74, green:0.38, blue:0.61, alpha:1.0), size: CGSize(width: 10, height: 10))
+            gift.setLevel(number: 2)
+        default:
+            gift = GiftView(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 25, height: 5))
+        }
         gift.position = view.position
         let giftController = GiftController(view: gift)
         giftController.setup(parent)

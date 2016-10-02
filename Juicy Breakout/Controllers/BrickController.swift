@@ -32,6 +32,9 @@ class BrickController: Controller {
             case 3:
                 view = BrickView(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 40, height: 15))
                 view.setLevel(number: 3)
+            case 4:
+                view = BrickView(color: UIColor(red:0.74, green:0.38, blue:0.61, alpha:1.0), size: CGSize(width: 40, height: 15))
+                view.setLevel(number: 4)
             default:
                 view = BrickView(color: UIColor(red:0.38, green:0.74, blue:0.52, alpha:1.0), size: CGSize(width: 40, height: 15))
         }

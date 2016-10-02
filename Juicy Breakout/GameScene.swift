@@ -19,6 +19,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var paddleController:PaddleController!
     var ballController:BallController!
     var brick: [Controller?] = []
+    static var ballControllers: [BallController] = []
     
    
     override func didMove(to view: SKView) {
@@ -46,7 +47,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         scoreLabel.text = "Score: \(GameScene.score)"
-        changeToGameOver()
+        if gameOver() {
+            changeToGameOver()
+        }
+        
         
         if(gameWin() == true) {
             changeToWin()
@@ -89,6 +93,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.ballController = BallController(view: ballView)
         self.ballController.setup(self)
+        
+        GameScene.ballControllers.append(self.ballController)
 
     }
     
@@ -237,12 +243,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
    
     func changeToGameOver() {
-        if(self.ballController.check == true) {
             let gameScene = GameOverScence(size: (self.view?.frame.size)!)
             self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
             
             self.run(SKAction.playSoundFileNamed("game-over.wav", waitForCompletion: false))
-        }
     }
     
     func changeToWin() {
@@ -250,6 +254,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
 //        self.run(SKAction.playSoundFileNamed("game-won.mp3", waitForCompletion: false))
 
+    }
+    
+    func gameOver() -> Bool {
+        var numberOfBalls = 0
+        for nodeObject in self.children {
+            let node = nodeObject as SKNode
+            if node.name == "ball" {
+                numberOfBalls += 1
+            }
+        }
+        return numberOfBalls <= 0
     }
     
     
