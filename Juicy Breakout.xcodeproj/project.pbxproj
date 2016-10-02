@@ -15,6 +15,7 @@
 		2CB1BD4A1DA09C8A006974D2 /* space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1BD491DA09C8A006974D2 /* space.jpg */; };
 		2CB1BD4C1DA09E28006974D2 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1BD4B1DA09E28006974D2 /* playbutton.png */; };
 		2CB1BD4E1DA0A4B1006974D2 /* gamesound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1BD4D1DA0A4B1006974D2 /* gamesound.mp3 */; };
+		2CB1BD521DA0E1B0006974D2 /* extend.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1BD511DA0E1B0006974D2 /* extend.wav */; };
 		A809D30B1D9FE6B9003DA7F8 /* BallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30A1D9FE6B9003DA7F8 /* BallController.swift */; };
 		A809D30D1D9FEB34003DA7F8 /* BrickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30C1D9FEB34003DA7F8 /* BrickController.swift */; };
 		A809D30F1D9FF130003DA7F8 /* BrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D30E1D9FF130003DA7F8 /* BrickView.swift */; };
@@ -58,6 +59,7 @@
 		2CB1BD491DA09C8A006974D2 /* space.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = space.jpg; sourceTree = "<group>"; };
 		2CB1BD4B1DA09E28006974D2 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
 		2CB1BD4D1DA0A4B1006974D2 /* gamesound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamesound.mp3; sourceTree = "<group>"; };
+		2CB1BD511DA0E1B0006974D2 /* extend.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = extend.wav; sourceTree = "<group>"; };
 		A809D30A1D9FE6B9003DA7F8 /* BallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BallController.swift; path = Controllers/BallController.swift; sourceTree = "<group>"; };
 		A809D30C1D9FEB34003DA7F8 /* BrickController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrickController.swift; path = Controllers/BrickController.swift; sourceTree = "<group>"; };
 		A809D30E1D9FF130003DA7F8 /* BrickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrickView.swift; path = Views/BrickView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				2CB1BD2E1DA08285006974D2 /* BambooBreak.wav */,
 				2CB1BD321DA087CE006974D2 /* game-over.wav */,
 				2CB1BD301DA087B2006974D2 /* game-won.mp3 */,
+				2CB1BD511DA0E1B0006974D2 /* extend.wav */,
 			);
 			name = Sound;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				A8D1CA801D9C399D00736AFC /* Assets.xcassets in Resources */,
 				A809D3251DA08098003DA7F8 /* spark.png in Resources */,
 				A809D3241DA08098003DA7F8 /* ParticleBrick1.sks in Resources */,
+				2CB1BD521DA0E1B0006974D2 /* extend.wav in Resources */,
 				A809D32F1DA0BE6B003DA7F8 /* break_level_3.png in Resources */,
 				A809D32B1DA09348003DA7F8 /* break_level_2.sks in Resources */,
 				A8D1CA831D9C399D00736AFC /* LaunchScreen.storyboard in Resources */,
