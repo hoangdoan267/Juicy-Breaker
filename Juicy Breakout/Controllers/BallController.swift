@@ -36,8 +36,6 @@ class BallController: Controller {
             }
             
             if let brick = otherView as? BrickView {
-               
-                
                 brick.removeFromParent()
                 parent.run(SKAction.playSoundFileNamed("BambooBreak.wav", waitForCompletion: false))
                 print(brick.level)

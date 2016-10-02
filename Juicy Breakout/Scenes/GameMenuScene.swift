@@ -32,7 +32,7 @@ class GameMenuScene: SKScene {
             for node in touchNodes {
                 if(node.name == "Play") {
                     //1 creat secent
-                    let gameScene = SceneLevel2(size: (self.view?.frame.size)!)
+                    let gameScene = GameScene(size: (self.view?.frame.size)!)
                     //2 transport
                     self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor.black, duration: 0.5))
                 }

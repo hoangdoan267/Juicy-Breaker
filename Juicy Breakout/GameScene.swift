@@ -31,6 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         addBottom()
         addBricks()
         addScore()
+        addCheat()
         configCollision()
     }
     //GAME SOUND
@@ -56,6 +57,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             changeToWin()
         }
     }
+    
+    //ADD CHEAT
+    func addCheat() {
+        let cheat = SKLabelNode(text: "next")
+        cheat.fontSize = 13
+        cheat.fontColor = UIColor.blue
+        cheat.position.x = self.frame.size.width - 30
+        cheat.position.y = self.frame.size.height - 30
+        cheat.name = "next"
+        addChild(cheat)
+        
+        let back = SKLabelNode(text: "back")
+        back.fontSize = 13
+        back.fontColor = UIColor.blue
+        back.position.x = 30
+        back.position.y = self.frame.size.height - 30
+        back.name = "back"
+        addChild(back)
+    }
+    
+    
     
     //ADD SCORR LABEL
     func addScore()  {
@@ -184,7 +206,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            let touchNode = self.nodes(at: location)
+            for node in touchNode {
+                if(node.name == "next") {
+                    //1 creat secent
+                    let gameScene = SceneLevel2(size: (self.view?.frame.size)!)
+                    //2 transport
+                    self.view?.presentScene(gameScene, transition: SKTransition.doorsCloseHorizontal(withDuration: 0.5))
+                }
+                if(node.name == "back") {
+                    //1 creat secent
+                    let gameScene = GameMenuScene(size: (self.view?.frame.size)!)
+                    //2 transport
+                    self.view?.presentScene(gameScene, transition: SKTransition.flipHorizontal(withDuration: 0.5))
+                }
 
+            }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
