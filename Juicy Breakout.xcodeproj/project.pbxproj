@@ -36,6 +36,7 @@
 		A809D3311DA0BE92003DA7F8 /* break_level_3.sks in Resources */ = {isa = PBXBuildFile; fileRef = A809D3301DA0BE92003DA7F8 /* break_level_3.sks */; };
 		A809D3331DA0C01C003DA7F8 /* GiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D3321DA0C01C003DA7F8 /* GiftView.swift */; };
 		A809D3371DA0D085003DA7F8 /* GiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D3361DA0D085003DA7F8 /* GiftController.swift */; };
+		A809D3391DA0F949003DA7F8 /* SceneLevel3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D3381DA0F949003DA7F8 /* SceneLevel3.swift */; };
 		A8D1CA731D9C399D00736AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D1CA721D9C399D00736AFC /* AppDelegate.swift */; };
 		A8D1CA751D9C399D00736AFC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA741D9C399D00736AFC /* GameScene.sks */; };
 		A8D1CA771D9C399D00736AFC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA761D9C399D00736AFC /* Actions.sks */; };
@@ -80,6 +81,7 @@
 		A809D3301DA0BE92003DA7F8 /* break_level_3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = break_level_3.sks; path = Particle/break_level_3.sks; sourceTree = "<group>"; };
 		A809D3321DA0C01C003DA7F8 /* GiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiftView.swift; path = Views/GiftView.swift; sourceTree = "<group>"; };
 		A809D3361DA0D085003DA7F8 /* GiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiftController.swift; path = Controllers/GiftController.swift; sourceTree = "<group>"; };
+		A809D3381DA0F949003DA7F8 /* SceneLevel3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneLevel3.swift; path = Scenes/SceneLevel3.swift; sourceTree = "<group>"; };
 		A8D1CA6F1D9C399D00736AFC /* Juicy Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Juicy Breakout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D1CA721D9C399D00736AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D1CA741D9C399D00736AFC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				A809D3161DA03409003DA7F8 /* GameWinScene.swift */,
 				A809D31D1DA05C2D003DA7F8 /* SceneLevel2.swift */,
 				2CB1BD441DA09609006974D2 /* GameMenuScene.swift */,
+				A809D3381DA0F949003DA7F8 /* SceneLevel3.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				A809D30F1D9FF130003DA7F8 /* BrickView.swift in Sources */,
 				A809D3191DA046CC003DA7F8 /* PaddleView.swift in Sources */,
 				A8E171961D9FBBC7001AE326 /* View.swift in Sources */,
+				A809D3391DA0F949003DA7F8 /* SceneLevel3.swift in Sources */,
 				A809D3131DA02A99003DA7F8 /* BottomView.swift in Sources */,
 				A8D1CA7B1D9C399D00736AFC /* GameViewController.swift in Sources */,
 				A8E171981D9FBBE1001AE326 /* Controller.swift in Sources */,

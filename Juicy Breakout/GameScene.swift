@@ -167,6 +167,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 singleBrickController.changeView()
                 singleBrickController.view.position = CGPoint(x: position, y: yOffset)
                 singleBrickController.view.name = "brick"
+                singleBrickController.view.setHP(number: 1)
                 self.addChild(singleBrickController.view)
                 singleBrickController.setup(self)
                 self.brick.append(singleBrickController)

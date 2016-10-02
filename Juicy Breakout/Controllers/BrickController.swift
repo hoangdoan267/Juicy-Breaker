@@ -26,17 +26,25 @@ class BrickController: Controller {
             case 1:
                 view = BrickView(color: UIColor(red:0.38, green:0.74, blue:0.52, alpha:1.0), size: CGSize(width: 40, height: 15))
                 view.setLevel(number: 1)
+                view.setHP(number: 1)
             case 2:
                 view = BrickView(color: UIColor(red:0.74, green:0.52, blue:0.38, alpha:1.0), size: CGSize(width: 40, height: 15))
                 view.setLevel(number: 2)
+                view.setHP(number: 1)
             case 3:
                 view = BrickView(color: UIColor(red:0.81, green:0.22, blue:0.27, alpha:1.0), size: CGSize(width: 40, height: 15))
                 view.setLevel(number: 3)
+                view.setHP(number: 1)
             case 4:
                 view = BrickView(color: UIColor(red:0.74, green:0.38, blue:0.61, alpha:1.0), size: CGSize(width: 40, height: 15))
                 view.setLevel(number: 4)
+                view.setHP(number: 1)
+            case 5:
+                view = BrickView(color: UIColor(red:0.00, green:0.34, blue:0.61, alpha:1.0), size: CGSize(width: 40, height: 15))
+                view.setLevel(number: 5)
+                view.setHP(number: 2)
             default:
-                view = BrickView(color: UIColor(red:0.38, green:0.74, blue:0.52, alpha:1.0), size: CGSize(width: 40, height: 15))
+                view = BrickView(color: UIColor(red:0.01, green:0.66, blue:0.96, alpha:1.0), size: CGSize(width: 40, height: 15))
         }
     }
     

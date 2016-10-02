@@ -21,13 +21,17 @@ class PaddleController: Controller {
                 paddle.removeFromParent()
                 //self.view.setScale(1.5)
                 parent.run(SKAction.playSoundFileNamed("extend.wav", waitForCompletion: false))
-                self.view.run(SKAction.scale(by: 1.5, duration: 0.5))
+                
                 
             if let gift = otherView as? GiftView {
                 gift.removeFromParent()
                 
                 if gift.level == 1 {
-                    self.view.setScale(1.5)
+                    let size = self.view.size.width
+                    if (size * 1.5 <= 150) {
+                        self.view.run(SKAction.scale(by: 1.5, duration: 0.5))                        
+                    }
+
                 }
                 
                 if gift.level == 2 {

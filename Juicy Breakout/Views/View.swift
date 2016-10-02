@@ -16,9 +16,14 @@ class View : SKSpriteNode {
     
     var level:Int = 0
     
+    var hp:Int = 0
+    
     func setLevel(number: Int) {
         self.level = number
-        print(self.level)
+    }
+    
+    func setHP(number: Int) {
+        self.hp = number
     }
     
 }

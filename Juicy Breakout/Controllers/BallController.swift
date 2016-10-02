@@ -35,10 +35,15 @@ class BallController: Controller {
                 parent.run(SKAction.playSoundFileNamed("paddleBlip.wav", waitForCompletion: false))
             }
             
-            if let brick = otherView as? BrickView {
+            if var brick = otherView as? BrickView {
                
+                brick.hp -= 1
+                print("Mau cua gach \(brick.hp)")
                 
-                brick.removeFromParent()
+                if brick.hp == 0 {
+                    brick.removeFromParent()
+                }
+               
                 parent.run(SKAction.playSoundFileNamed("BambooBreak.wav", waitForCompletion: false))
                 print(brick.level)
                 if brick.level == 1 {
@@ -70,6 +75,27 @@ class BallController: Controller {
                     particle?.position = brick.position
                     parent.addChild(particle!)
                     self.addGift(parent: parent, giftType: 2)
+                }
+                
+                if brick.level == 5 {
+                    switch brick.hp {
+                    case 1:
+                        let colorize = SKAction.colorize(with: UIColor(red:0.51, green:0.83, blue:0.98, alpha:1.0), colorBlendFactor: 1, duration: 0.5)
+                        brick.run(colorize)
+                        print(brick.color)
+//                    case 3:
+//                        let colorize = SKAction.colorize(with: UIColor(red:0.00, green:0.69, blue:1.00, alpha:1.0), colorBlendFactor: 1, duration: 0.5)
+//                        brick.run(colorize)
+//                    case 2:
+//                        let colorize = SKAction.colorize(with: UIColor(red:0.51, green:0.83, blue:0.98, alpha:1.0), colorBlendFactor: 1, duration: 0.5)
+//                        brick.run(colorize)
+//                    case 1:
+//                        let colorize = SKAction.colorize(with: UIColor(red:0.88, green:0.96, blue:1.00, alpha:1.0), colorBlendFactor: 1, duration: 0.5)
+//                        brick.run(colorize)
+                    default:
+                        let colorize = SKAction.colorize(with: UIColor(red:0.51, green:0.83, blue:0.98, alpha:1.0), colorBlendFactor: 1, duration: 0.5)
+                        brick.run(colorize)
+                    }
                 }
                 
                 //self.totalPoint += self.count
