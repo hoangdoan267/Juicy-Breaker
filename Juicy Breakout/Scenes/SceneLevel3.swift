@@ -1,5 +1,5 @@
 //
-//  SceneLevel2.swift
+//  SceneLevel3.swift
 //  Juicy Breakout
 //
 //  Created by Hoang Doan on 10/2/16.
@@ -8,10 +8,7 @@
 
 import SpriteKit
 
-class SceneLevel2: GameScene {
-    
-    
-        
+class SceneLevel3: GameScene {
     override func addBricks() {
         let numberOfRows = 6
         let numberOfBricks = 6
@@ -44,7 +41,7 @@ class SceneLevel2: GameScene {
             
             
             for index in 1 ... numberOfBricks {
-                let brickView = BrickView(color: UIColor(red:0.38, green:0.74, blue:0.52, alpha:1.0), size: CGSize(width: 40, height: 15))
+                let brickView = BrickView(color: UIColor(red:0.00, green:0.34, blue:0.61, alpha:1.0), size: CGSize(width: 40, height: 15))
                 
                 
                 let calc1:Float = Float(index) - 0.5
@@ -52,21 +49,8 @@ class SceneLevel2: GameScene {
                 let position = CGFloat(calc1  * Float(brickView.frame.size.width) + calc2 * Float(padding) + finalOffset)
                 
                 let singleBrickController = BrickController(view: brickView)
-                if (row % 2 == 0 && index % 3 == 0) {
-                    singleBrickController.setLevel(number: 4)
-
-                }
-                else if (row % 2 != 0 && index % 3 == 0) {
-                    singleBrickController.setLevel(number: 3)
-                    
-                } else if row % 2 != 0 {
-                    singleBrickController.setLevel(number: 1)
-
-
-                } else if row % 2 == 0 {
-                    singleBrickController.setLevel(number: 2)
-                }
-                
+                singleBrickController.setLevel(number: 5)
+                print(singleBrickController.level)
                 singleBrickController.changeView()
                 singleBrickController.view.position = CGPoint(x: position, y: yOffset)
                 singleBrickController.view.name = "brick"
