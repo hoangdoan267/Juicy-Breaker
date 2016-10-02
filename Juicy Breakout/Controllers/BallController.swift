@@ -18,11 +18,18 @@ class BallController: Controller {
     
     override func setup(_ parent: SKNode) {
         configPhysics()
+<<<<<<< HEAD
         setupContact(parent: parent)
+=======
+        setupContact(parent : parent)
+>>>>>>> 16168b3b21fa001e57226ae99a759d9caf82c13f
     }
     
-  
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 16168b3b21fa001e57226ae99a759d9caf82c13f
     func setupContact(parent: SKNode)  {
         
         self.view.handleContact = {
@@ -30,6 +37,7 @@ class BallController: Controller {
             if let paddle = otherView as? PaddleView {
                 self.count = 0
                 self.time = 0
+                parent.run(SKAction.playSoundFileNamed("paddleBlip.wav", waitForCompletion: false))
             }
             
             if let brick = otherView as? BrickView {
@@ -39,6 +47,7 @@ class BallController: Controller {
                 
                 
                 brick.removeFromParent()
+                parent.run(SKAction.playSoundFileNamed("BambooBreak.wav", waitForCompletion: false))
                 print(brick.level)
                 if brick.level == 1 {
                     self.count += 1
@@ -52,7 +61,7 @@ class BallController: Controller {
                     self.count = 0
                 }
                 
-//                self.totalPoint += self.count
+                //                self.totalPoint += self.count
                 GameScene.score += self.count + self.time
                 
             }
@@ -60,9 +69,9 @@ class BallController: Controller {
                 self.view.removeFromParent()
                 self.check = true
             }
-
             
-        }        
+            
+        }
     }
     
     
