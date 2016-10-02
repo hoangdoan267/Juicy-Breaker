@@ -18,12 +18,12 @@ class BallController: Controller {
     
     override func setup(_ parent: SKNode) {
         configPhysics()
-        setupContact()
+        setupContact(parent: parent)
     }
     
   
     
-    func setupContact()  {
+    func setupContact(parent: SKNode)  {
         
         self.view.handleContact = {
             otherView in
@@ -33,6 +33,11 @@ class BallController: Controller {
             }
             
             if let brick = otherView as? BrickView {
+                let particle = SKEmitterNode(fileNamed: "BrokenPlatform.sks")
+                particle?.position = brick.position
+                parent.addChild(particle!)
+                
+                
                 brick.removeFromParent()
                 print(brick.level)
                 if brick.level == 1 {

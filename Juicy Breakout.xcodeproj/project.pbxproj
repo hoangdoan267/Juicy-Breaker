@@ -17,6 +17,10 @@
 		A809D31C1DA05290003DA7F8 /* SKViewUltis.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D31B1DA05290003DA7F8 /* SKViewUltis.swift */; };
 		A809D31E1DA05C2D003DA7F8 /* SceneLevel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D31D1DA05C2D003DA7F8 /* SceneLevel2.swift */; };
 		A809D3201DA06E3F003DA7F8 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809D31F1DA06E3F003DA7F8 /* ScoreLabel.swift */; };
+		A809D3241DA08098003DA7F8 /* ParticleBrick1.sks in Resources */ = {isa = PBXBuildFile; fileRef = A809D3221DA08098003DA7F8 /* ParticleBrick1.sks */; };
+		A809D3251DA08098003DA7F8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A809D3231DA08098003DA7F8 /* spark.png */; };
+		A809D3271DA0864A003DA7F8 /* brick1.png in Resources */ = {isa = PBXBuildFile; fileRef = A809D3261DA0864A003DA7F8 /* brick1.png */; };
+		A809D3291DA08DAD003DA7F8 /* BrokenPlatform.sks in Resources */ = {isa = PBXBuildFile; fileRef = A809D3281DA08DAD003DA7F8 /* BrokenPlatform.sks */; };
 		A8D1CA731D9C399D00736AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D1CA721D9C399D00736AFC /* AppDelegate.swift */; };
 		A8D1CA751D9C399D00736AFC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA741D9C399D00736AFC /* GameScene.sks */; };
 		A8D1CA771D9C399D00736AFC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A8D1CA761D9C399D00736AFC /* Actions.sks */; };
@@ -42,6 +46,10 @@
 		A809D31B1DA05290003DA7F8 /* SKViewUltis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKViewUltis.swift; path = Ultils/SKViewUltis.swift; sourceTree = "<group>"; };
 		A809D31D1DA05C2D003DA7F8 /* SceneLevel2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneLevel2.swift; path = Scenes/SceneLevel2.swift; sourceTree = "<group>"; };
 		A809D31F1DA06E3F003DA7F8 /* ScoreLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreLabel.swift; path = Ultils/ScoreLabel.swift; sourceTree = "<group>"; };
+		A809D3221DA08098003DA7F8 /* ParticleBrick1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = ParticleBrick1.sks; path = Particle/ParticleBrick1.sks; sourceTree = "<group>"; };
+		A809D3231DA08098003DA7F8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = Particle/spark.png; sourceTree = "<group>"; };
+		A809D3261DA0864A003DA7F8 /* brick1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = brick1.png; path = Particle/brick1.png; sourceTree = "<group>"; };
+		A809D3281DA08DAD003DA7F8 /* BrokenPlatform.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = BrokenPlatform.sks; path = Particle/BrokenPlatform.sks; sourceTree = "<group>"; };
 		A8D1CA6F1D9C399D00736AFC /* Juicy Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Juicy Breakout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D1CA721D9C399D00736AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8D1CA741D9C399D00736AFC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -78,6 +86,17 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		A809D3211DA08061003DA7F8 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				A809D3221DA08098003DA7F8 /* ParticleBrick1.sks */,
+				A809D3281DA08DAD003DA7F8 /* BrokenPlatform.sks */,
+				A809D3261DA0864A003DA7F8 /* brick1.png */,
+				A809D3231DA08098003DA7F8 /* spark.png */,
+			);
+			name = Particle;
+			sourceTree = "<group>";
+		};
 		A8D1CA661D9C399D00736AFC = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +116,7 @@
 		A8D1CA711D9C399D00736AFC /* Juicy Breakout */ = {
 			isa = PBXGroup;
 			children = (
+				A809D3211DA08061003DA7F8 /* Particle */,
 				A809D31A1DA05239003DA7F8 /* Utils */,
 				A8E1718F1D9FBB23001AE326 /* Views */,
 				A8E171921D9FBB3F001AE326 /* Scenes */,
@@ -216,8 +236,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D1CA7E1D9C399D00736AFC /* Main.storyboard in Resources */,
+				A809D3291DA08DAD003DA7F8 /* BrokenPlatform.sks in Resources */,
+				A809D3271DA0864A003DA7F8 /* brick1.png in Resources */,
 				A8D1CA751D9C399D00736AFC /* GameScene.sks in Resources */,
 				A8D1CA801D9C399D00736AFC /* Assets.xcassets in Resources */,
+				A809D3251DA08098003DA7F8 /* spark.png in Resources */,
+				A809D3241DA08098003DA7F8 /* ParticleBrick1.sks in Resources */,
 				A8D1CA831D9C399D00736AFC /* LaunchScreen.storyboard in Resources */,
 				A8D1CA771D9C399D00736AFC /* Actions.sks in Resources */,
 			);
