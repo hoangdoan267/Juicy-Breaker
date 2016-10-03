@@ -34,6 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         addCheat()
         configCollision()
     }
+    
     //GAME SOUND
     func addGameSound() {
         //backgroundMusic = SKAudioNode(fileNamed: "gamesound.mp3")
