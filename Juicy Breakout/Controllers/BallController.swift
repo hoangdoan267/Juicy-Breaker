@@ -79,7 +79,17 @@ class BallController: Controller {
                     case 1:
                         let colorize = SKAction.colorize(with: UIColor(red:0.51, green:0.83, blue:0.98, alpha:1.0), colorBlendFactor: 1, duration: 0.5)
                         brick.run(colorize)
-                        print(brick.color)
+
+                    case 0:
+                        GameScene.score += 5
+                        let particle = SKEmitterNode(fileNamed: "break_level_5.sks")
+                        particle?.position = brick.position
+                        parent.addChild(particle!)
+                        let randomGift = Int(arc4random_uniform(5))
+                        if randomGift > 0 && randomGift < 3 {
+                            self.addGift(parent: parent, giftType: randomGift)
+                        }
+                        
                     default:
                         let colorize = SKAction.colorize(with: UIColor(red:0.51, green:0.83, blue:0.98, alpha:1.0), colorBlendFactor: 1, duration: 0.5)
                         brick.run(colorize)

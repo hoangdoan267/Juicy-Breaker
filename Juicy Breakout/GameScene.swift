@@ -292,7 +292,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func changeToWin() {
         let gameScene = SceneLevel2(size: (self.view?.frame.size)!)
-        self.view?.presentScene(gameScene, transition: SKTransition.fade(with: UIColor(red:0.97, green:0.95, blue:0.70, alpha:1.0), duration: 0.1))
+        self.view?.presentScene(gameScene, transition: SKTransition.doorsCloseHorizontal(withDuration: 0.5))
 //        self.run(SKAction.playSoundFileNamed("game-won.mp3", waitForCompletion: false))
 
     }
